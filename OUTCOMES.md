@@ -12,7 +12,7 @@
 **Status**: ✅ Completed
 
 **What I did**:
-En este nivel experto, he transformado el repositorio en un entorno de desarrollo seguro de grado empresarial. He configurado Branch Protection Rules en la rama main para forzar revisiones de código y firmas obligatorias. He implementado un sistema de firmas criptográficas GPG para verificar la autenticidad de cada commit, garantizando que nadie pueda suplantar mi identidad. Además, he realizado una auditoría de seguridad del historial para detectar posibles fugas de secretos y he reforzado la política de exclusión de archivos mediante un .gitignore profesional. Finalmente, he habilitado las funciones de seguridad avanzada de GitHub (Dependabot y Secret Scanning).
+For this final expert level, we turned our repository into a secure, enterprise-grade development environment. We locked down the main branch by setting up Branch Protection Rules that enforce code reviews and mandatory commit signing. We also implemented a GPG cryptographic signing system to verify the authenticity of every commit, making it impossible for anyone to impersonate us. On top of that, we ran a security audit on our entire history to check for leaked secrets and tightened our .gitignore policy. To wrap things up, we enabled GitHub’s advanced security features like Dependabot and Secret Scanning to keep the repo safe moving forward.
 
 **Commands Used**:
 ```bash
@@ -68,23 +68,23 @@ Date:   Sun Jan 11 13:11:02 2026 +0100
 ## 🎯 Key Learnings
 
 **Main concepts I learned**:
-1. **Verificación de la Cadena de Suministro**: El papel de GPG para asegurar que el código fuente no ha sido alterado por terceros.
-2. **Gobernanza mediante Branch Protection**: Cómo las reglas automáticas sustituyen la "buena voluntad" por políticas técnicas infranqueables.
-3. **Inmutabilidad del Historial de Secretos**: La comprensión de que un secreto subido una vez es un secreto comprometido para siempre, independientemente de si se borra en commits posteriores.
+1. **Supply Chain Security**: We learned how GPG acts as a digital seal, ensuring that the source code hasn't been tampered with by unauthorized third parties.
+2. **Governance via Branch Protection**: We saw how automated rules replace "good intentions" with technical safeguards that simply cannot be bypassed.
+3. **The Permanence of Leaked Secrets**: We now understand that once a secret is pushed, it is compromised forever, regardless of whether it’s deleted in later commits.
 
 **Skills I improved**:
-- Configuración de infraestructura criptográfica local.
-- Auditoría de seguridad de repositorios Git.
-- Implementación de políticas de Code Owners para revisiones automáticas.
+- Setting up local cryptographic infrastructure for Git.
+- Conducting thorough security audits on repository histories.
+- Implementing Code Owners policies to automate specialized reviews.
 
 ---
 
 ## 🚧 Challenges Faced
 
-### Challenge 1: Configuración de GPG Agent
-**Problem**: Git no solicitaba la contraseña de la llave GPG en la terminal, fallando el commit directamente con el error "error: gpg failed to sign the data".
+### Challenge 1: GPG Agent Configuration Quirks
+**Problem**: At first, Git wasn't prompting us for the GPG passphrase in the terminal. The commits just kept failing with the generic "error: gpg failed to sign the data" message.
 
-**Solution**: Tuve que configurar la variable de entorno GPG_TTY y reiniciar el agente GPG para que la interfaz de entrada de contraseña (pinentry) apareciera correctamente en PowerShell.
+**Solution**: We had to troubleshoot the environment variables and set `GPG_TTY`. After restarting the GPG agent, the pinentry interface finally popped up correctly in our PowerShell terminal, allowing us to sign our work.
 
 **Commands/Approach**:
 ```bash
@@ -94,18 +94,17 @@ git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"
 
 ---
 
-### Challenge 2: Pushes bloqueados por protección
-**Problem**: Incluso tras habilitar GPG, el push a main fallaba porque no cumplía con la regla de "Require a pull request before merging".
+### Challenge 2: Blocked by our own Protections
+**Problem**: Even after we got GPG working, our attempts to push to main were blocked because we hadn't met the "Require a pull request before merging" rule.
 
-**Solution**: Esto demostró que las reglas funcionan incluso para administradores. Tuve que cambiar el flujo de trabajo a uno basado estrictamente en ramas de funcionalidad y PRs.
+**Solution**: This was actually a great "success" because it proved the rules were working even for us as admins. We had to shift our mindset and strictly follow the feature-branch and PR workflow for every single change.
 
 ---
 
 ## 💭 Personal Reflection
 
-La culminación de este entrenamiento en el nivel "Master of the Universe" me ha permitido comprender que Git no es solo una herramienta de almacenamiento de código, sino el núcleo de la seguridad en la cadena de suministro de software (Supply Chain Security). En un entorno profesional, la confianza es un activo que no puede dejarse al azar. El uso de firmas GPG es la única forma técnica de garantizar la no repudiación; sin ellas, cualquier atacante con acceso a la red interna podría configurar un user.email falso y subir código malicioso que parecería provenir de un desarrollador senior o un administrador. La marca "Verified" en GitHub no es un adorno estético, es una prueba criptográfica de integridad.
-Por otro lado, la implementación de las Branch Protection Rules cambia radicalmente la cultura de un equipo. Al exigir revisiones obligatorias y estados de comprobación (checks) verdes, el repositorio se protege contra el error humano y la urgencia mal entendida. La integración de los Code Owners asegura que el conocimiento esté distribuido y que los expertos en seguridad o arquitectura tengan siempre la última palabra sobre los cambios en áreas críticas del sistema. Esto crea un equilibrio saludable entre la agilidad de desarrollo y la estabilidad del sistema.
-Finalmente, la gestión de datos sensibles es quizás el punto más crítico de esta formación. He aprendido que la seguridad en Git es retrospectiva: una vez que un token de acceso o una contraseña llega al historial, la única respuesta profesional es la rotación inmediata de la credencial y la limpieza del historial mediante herramientas como git-filter-repo. Estas prácticas, sumadas al uso de firmas y protecciones, alinean el flujo de trabajo con los principios de DevSecOps, donde la seguridad no es una fase final, sino una propiedad intrínseca del proceso de construcción de software. Como "Master of the Universe", mi responsabilidad ahora es diseñar flujos de trabajo donde sea fácil hacer las cosas bien y técnicamente difícil cometer errores de seguridad.
+We’ve realized that Git isn’t just about saving code; it’s the heart of Supply Chain Security. Using GPG signatures is the only technical way to guarantee non-repudiation. Without them, any attacker with internal access could spoof a user.email and push malicious code that looks like it came from a dev. The "Verified" badge on GitHub isn't just for show; it’s cryptographic proof of integrity. Implementing Branch Protection Rules also fundamentally changes the team culture. By requiring mandatory reviews and "green" status checks, the repository is shielded from human error and "emergency" shortcuts that usually lead to technical debt or security holes. Integrating Code Owners ensures that knowledge is distributed and that security or architecture experts always have the final say on changes to critical parts of the system. This creates a healthy balance between development speed and system stability.
+Finally, managing sensitive data was perhaps the most eye-opening part of this training. We learned that security in Git is retrospective: once a token or password hits the history, the only professional response is immediate credential rotation and a deep history cleanup using tools like git-filter-repo. These practices, combined with signing and protections, align our workflow with DevSecOps principles, where security is an intrinsic part of the build process rather than a final checkbox.
 
 ---
 
@@ -130,11 +129,11 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
 **Links to branches/commits**:
 - Link to your outcome branch: `https://github.com/miguel-oltra/taller-master-ugr/tree/group-DS04-outcomes/master-of-the-universe`
 - Key commits demonstrating your work:
-  - db958f8: Commit firmado y verificado con GPG.
+  - db958f8: Verified commit signed with our GPG key.
 
 **Additional files created** (if any):
-- security-artifacts/public-key.asc: Mi llave pública GPG para verificación externa.
-- security-artifacts/protection-rules.txt: Resumen de las reglas aplicadas en GitHub.
+- security-artifacts/public-key.asc: Our GPG public key for external verification.
+- security-artifacts/protection-rules.txt: Summary of the rules we applied on GitHub.
 
 ---
 
@@ -152,8 +151,6 @@ Before submitting, ensure you have:
 ---
 
 ## 📝 Additional Comments
-
-[Any additional thoughts, questions, or feedback about the exercises]
 
 ---
 
