@@ -73,8 +73,15 @@ PS C:\Users\elias\taller-master-ugr> git log --graph --oneline --all
 ```
 
 **Screenshots** (if applicable):
-- [Screenshot 1: Description]
-- [Screenshot 2: Description]
+- <img width="928" height="957" alt="Captura de pantalla 2026-01-11 112056" src="https://github.com/user-attachments/assets/2e16453f-fc6f-4ec6-b36c-14e7c5e12dbd" />
+
+- <img width="942" height="949" alt="Captura de pantalla 2026-01-11 112125" src="https://github.com/user-attachments/assets/e42098da-2abe-4aaf-9462-f7572654f73a" />
+
+- <img width="935" height="950" alt="Captura de pantalla 2026-01-11 112143" src="https://github.com/user-attachments/assets/2d7b3314-c18d-463e-a810-e6462081f0f0" />
+
+- <img width="931" height="952" alt="Captura de pantalla 2026-01-11 112208" src="https://github.com/user-attachments/assets/6d814f9b-4af7-4158-892e-2e3ffda608e4" />
+
+- <img width="935" height="692" alt="Captura de pantalla 2026-01-11 112236" src="https://github.com/user-attachments/assets/f2d827ee-b29f-4ae6-810f-035de010137e" />
 
 ---
 
