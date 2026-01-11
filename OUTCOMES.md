@@ -205,8 +205,8 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
 **Links to branches/commits**:
 - Link to your outcome branch: `https://github.com/eligarto-ugr/taller-master-ugr/tree/group-DS04-outcomes/newbie`
 - Key commits demonstrating your work:
-  - Commit hash: "Add hello.txt with my name"
-  - Commit hash: "Add personal information"
+  - f437a3f: "Add hello.txt with my name"
+  - cc25294: "Add personal information"
 
 **Additional files created** (if any):
 - File 1: hello.txt - Archivo básico para practicar el flujo de preparación.
