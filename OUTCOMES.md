@@ -1,6 +1,6 @@
 # Exercise Outcomes Submission Template
 
-**Student/Group Name**: Elias/DS04  
+**Student/Group Name**: Elias and Nikolina/DS04  
 **Level Completed**: [newbie]  
 **Date**: [08-01-2026]
 
