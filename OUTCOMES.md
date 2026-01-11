@@ -12,21 +12,21 @@
 **Status**: ✅ Completed
 
 **What we did**:
-En este nivel avanzado, hemos dominado técnicas para mantener un historial de commits limpio y profesional. Primero, utilizamos git commit --amend para corregir y ampliar el último commit sin generar entradas innecesarias en el log. Segundo, realizamos un Rebase Interactivo para limpiar el historial de una funcionalidad, utilizando la operación fixup para integrar correcciones de errores en los commits originales de la "Feature". Finalmente, aplicamos un Rebase de rama para integrar los cambios de la rama master en mi rama de funcionalidad, logrando un historial lineal y evitando los "merge commits" que ensucian el gráfico del repositorio.
+We moved up to the Master level to learn how to keep a project history looking professional. We started by using git `commit --amend` to tweak our last commit instead of just piling up "oops" commits every time we forgot a line of code. Then, we dove into Interactive Rebase to tidy up our work; using `fixup` was great for merging small typo fixes into the main feature commits so they disappeared from the log. To finish it off, we rebased our feature branch onto master. This gave us that nice linear history without the messy "merge commits" you usually see in the graph.
 
 **Commands Used**:
 ```bash
-# Parte 1: Amend
+# Part 1: Amend
 git commit --amend -m "Add complete configuration file"
 
-# Parte 2: Rebase Interactivo
+# Part 2: Interactive Rebase
 git rebase -i HEAD~3 # Usando 'fixup' y 'reword'
 
-# Parte 3: Rebase de rama
+# Parte 3: Branch Rebase
 git checkout feature/awesome-feature
 git rebase master
 
-# Visualización
+# Visualization
 git log --graph --oneline --all -n 10
 ```
 
@@ -55,45 +55,36 @@ PS C:\Users\elias\taller-master-ugr> git log --graph --oneline --all -n 10
 ## 🎯 Key Learnings
 
 **Main concepts I learned**:
-1. **Inmutabilidad del historial**: Entendí que cualquier operación de reescritura (amend o rebase) no modifica los commits existentes, sino que crea otros nuevos con diferentes SHAs.
-2. **Historial Lineal vs. Cronológico**: La diferencia entre usar merge (que conserva el orden temporal y crea nudos) y rebase (que prioriza la limpieza lógica del proyecto).
-3. **Regla de Oro de Git**: Nunca reescribir la historia en ramas públicas o compartidas, ya que rompe el flujo de trabajo de los demás colaboradores.
+1. **Commits are (technically) permanent**: We learned that rewriting history doesn't actually edit an old commit; instead, Git creates a brand new one with a different SHA. It was interesting to see how the IDs changed even if the content stayed the same.
+2. **Clean vs. Messy graphs**: We now see the difference between a chronological history (merges) and a logical one (rebases). Keeping a linear history makes the whole project much easier to follow for anyone else.
+3. **The "Golden Rule"**: We realized why you should never rewrite history on shared branches. Doing so breaks everyone else's local repo, so we'll be keeping these tools for our private feature branches only.
 
 **Skills I improved**:
-- **Higiene de Commits**: Capacidad para "limpiar" commits de trabajo en curso antes de una revisión de código.
-- **Uso avanzado del editor interactivo**: Gestión de scripts de rebase (pick, fixup, reword).
-- **Seguridad en el Push**: Entendimiento del uso de --force-with-lease frente al peligroso --force.
+- **Commit hygiene**: We've gotten much better at cleaning up "work in progress" commits before they ever reach a code review.
+- **Mastering the interactive editor**: We’re now comfortable using the rebase script to pick, fixup, and reword our history.
+- **Safer Pushing**: We understand why `--force-with-lease` is the professional way to go when you need to update a rebased branch, as it protects us from accidentally overwriting a teammate's work.
 
 ---
 
 ## 🚧 Challenges Faced
 
-### Challenge 1: Cambio de SHAs tras el Rebase
-**Problem**: Al realizar el rebase de la rama de funcionalidad sobre master, me sorprendió ver que los identificadores (SHAs) de mis commits de "Feature" habían cambiado totalmente, aunque el contenido fuera el mismo.
+### Challenge 1: The disappearing SHAs
+**Problem**: After rebasing our feature branch onto master, we were surprised to see that every single commit ID had changed. We had to wrap our heads around the fact that Git was basically "replaying" our work on a new foundation, creating entirely new objects.
 
-**Solution**: Comprendí que al "rebasar", Git está aplicando mis cambios sobre una base nueva, lo que técnicamente genera nuevos objetos en la base de datos de Git. Esto me enseñó por qué es peligroso hacerlo en ramas compartidas.
+**Solution**: This taught us exactly why rebasing is strictly for local/private work. If we had done this on a public branch, our teammates would have had a nightmare trying to sync their work.
 
 
-### Challenge 2: Reordenación en el Rebase Interactivo
-**Problem**: Durante el ejercicio de fixup, tuve que mover la línea del commit de "typo" justo debajo del commit que quería arreglar en el editor de texto.
+### Challenge 2: Reordering in Interactive Rebase
+**Problem**: Getting the `fixup` command to work correctly was a bit tricky at first. We had to manually move the "typo fix" line in the editor so it sat right under the commit we wanted to patch.
 
-**Solution**: Aprendí que el orden de las líneas en el editor interactivo determina el orden final del historial y sobre qué commit se aplica cada fixup.
+**Solution**: We learned that the order of the lines in the rebase script is exactly how Git will rebuild the history. Once we figured out how to move the lines around, the squashing process worked perfectly.
 
 ---
 
 ## 💭 Personal Reflection
 
-**What surprised me**:
-Lo que más me sorprendió es la capacidad de "mentir" positivamente sobre el historial. Poder condensar 10 commits de pruebas y errores en un solo commit perfecto y bien explicado es fundamental para que el resto del equipo pueda entender el código meses después.
-
-**What I found most difficult**:
-Lo más difícil fue asimilar el concepto de que el historial de Git no es algo sagrado o intocable, sino que es una herramienta de comunicación. Al principio da miedo usar rebase -i, pero una vez entiendes que puedes volver atrás con el reflog si algo sale mal, se vuelve una herramienta indispensable.
-
-**What I found most useful**:
-Sin duda, el git commit --amend. Es muy común olvidar una línea de código o un comentario justo después de hacer el commit, y esta herramienta evita llenar el historial de mensajes como "oops", "ahora sí" o "arreglando olvido".
-
-**How I would apply this in real projects**:
-En un entorno profesional, utilizaría rebase para mantener mi rama de trabajo actualizada con la rama principal (main) diariamente. Antes de enviar un Pull Request, usaría el rebase interactivo para agrupar mis cambios en unidades lógicas y limpias, asegurando que el revisor de código vea una progresión clara y no mi proceso de ensayo y error.
+Honestly, it's pretty cool that you can "clean up" your past mistakes to make the history look perfect. Being able to take a dozen messy trial-and-error commits and squash them into one well-explained feature commit is a huge plus for anyone reading our code later. It took a bit of a mindset shift to realize that the Git history isn't "sacred." At first, `rebase -i` felt like we were playing with fire, but knowing that we can always use `git reflog` to undo a mistake made us feel much more adventurous.
+In a real job, we'd use rebase daily to keep our feature branches in sync with the main branch. Before opening a Pull Request, we’d definitely use interactive rebase to polish our work so the reviewer sees a clear, logical progression of features instead of our behind-the-scenes struggles.
 
 ---
 
@@ -118,12 +109,12 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
 **Links to branches/commits**:
 - Link to your outcome branch: `https://github.com/eligarto-ugr/taller-master-ugr/tree/group-DS04-outcomes/master`
 - Key commits demonstrating your work:
-  - 9b83fc1: Commit final tras el rebase sobre master.
-  - a41fe26: Commit unificado mediante amend.
+  - 9b83fc1: Final commit after rebasing onto master.
+  - a41fe26: Unified commit created via `amend`.
 
 **Additional files created** (if any):
-- config.txt: Archivo usado para practicar amend.
-- featureA.txt y featureB.txt: Archivos usados para practicar rebase -i.
+- config.txt: Used for the amend exercise.
+- featureA.txt y featureB.txt: Files used during the interactive rebase.
 
 ---
 
@@ -141,8 +132,6 @@ Before submitting, ensure you have:
 ---
 
 ## 📝 Additional Comments
-
-[Any additional thoughts, questions, or feedback about the exercises]
 
 ---
 
