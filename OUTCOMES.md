@@ -47,8 +47,21 @@ Date:   Sun Jan 11 13:11:02 2026 +0100
 ```
 
 **Screenshots** (if applicable):
-- [Screenshot 1: Description]
-- [Screenshot 2: Description]
+- <img width="1902" height="954" alt="Captura de pantalla 2026-01-11 130218" src="https://github.com/user-attachments/assets/09e9f192-16da-41d0-9eba-8905a5d1c0dd" />
+
+- <img width="927" height="927" alt="Captura de pantalla 2026-01-11 131307" src="https://github.com/user-attachments/assets/4fc0303e-3906-4c9e-aabe-56ed17b8c52a" />
+
+- <img width="945" height="952" alt="Captura de pantalla 2026-01-11 131435" src="https://github.com/user-attachments/assets/7b451eb4-e72b-4aff-beeb-fbc60bc74e7e" />
+
+- <img width="841" height="959" alt="Captura de pantalla 2026-01-11 131502" src="https://github.com/user-attachments/assets/50daef9f-b189-4723-82fe-ec56b4918c09" />
+
+- <img width="925" height="943" alt="Captura de pantalla 2026-01-11 131551" src="https://github.com/user-attachments/assets/ced35ecb-ff3d-4f11-8755-9d41fb20937b" />
+
+- <img width="928" height="912" alt="Captura de pantalla 2026-01-11 131611" src="https://github.com/user-attachments/assets/04ff677b-b101-40bb-ac86-ebce4dd973d0" />
+
+- <img width="921" height="947" alt="Captura de pantalla 2026-01-11 131629" src="https://github.com/user-attachments/assets/f568cfe5-7d78-40e5-b745-6a502f6738ac" />
+
+- <img width="929" height="888" alt="Captura de pantalla 2026-01-11 131646" src="https://github.com/user-attachments/assets/0aaaf5cf-1d45-44cc-960c-029226b1a9f6" />
 
 ---
 
