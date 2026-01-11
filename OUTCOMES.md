@@ -12,7 +12,7 @@
 **Status**: ✅ Completed
 
 **What I did**:
-[En este nivel he aprendido los fundamentos de Git: configuración inicial, el flujo de trabajo básico (add/commit), la gestión de ramas locales y la sincronización con repositorios remotos en GitHub.]
+In this first level, Nikolina and I got a solid handle on the Git basics. We walked through the initial setup, the core "add and commit" workflow, and learned how to manage local branches. We also practiced syncing our local work with our remote fork on GitHub, ensuring our progress was properly backed up and tracked.
 
 **Commands Used**:
 ```bash
@@ -135,23 +135,23 @@ Author: Miguel A. Oltra <39242642+miguel-oltra@users.noreply.github.com>
 ## 🎯 Key Learnings
 
 **Main concepts I learned**:
-1. **La arquitectura de tres áreas**: Entender la diferencia entre el Directorio de Trabajo (Working Directory), el Área de Preparación (Staging Area) y el Repositorio Local.
-2. **Desarrollo aislado**: Cómo utilizar ramas para trabajar en nuevas funcionalidades (`feature/my-info`) sin afectar el código estable de la rama principal.
-3. **Sincronización remota**: El flujo de trabajo para subir cambios locales a un servidor remoto (GitHub) y descargar actualizaciones para mantener el entorno local al día.
+1. **The Three-Tree Architecture**: We now understand how Git separates the Working Directory, the Staging Area, and the Local Repository. It makes the workflow much more logical.
+2. **Isolated Development**: We learned how to use branches to build new features without risking the stability of our main code.
+3. **Remote Synchronization**: We practiced the full cycle of pushing local changes to GitHub and pulling updates to keep our local environment in sync with the remote repository.
 
 **Skills I improved**:
-- **Uso de la Terminal (CLI)**: Mayor fluidez al gestionar el control de versiones mediante comandos en lugar de una interfaz gráfica.
-- **Rastreo del historial**: Interpretación de `git log` para seguir el rastro de los cambios y entender la evolución del proyecto.
-- **Gestión de identidad en Git**: Configuración correcta de los ajustes globales de usuario y autenticación mediante llaves SSH.
+- **CLI Fluency**: We’ve become much more comfortable managing version control through the terminal instead of relying on a GUI.
+- **History Tracking**: We learned how to interpret `git log` to trace back changes and see exactly how the project has evolved.
+- **Identity Management**: We properly configured our global user settings and verified our connection using SSH keys.
 
 ---
 
 ## 🚧 Challenges Faced
 
-### Challenge 1: Autenticación SSH
-**Problema**: Al intentar clonar el repositorio por primera vez, recibí un error de "Permission denied (publickey)".
+### Challenge 1: SSH Authentication
+**Problema**: When we first tried to clone the repo, we hit a "Permission denied (publickey)" error.
 
-**Solución**: Me di cuenta de que no había añadido mi llave pública SSH a la configuración de mi cuenta de GitHub o no la había generado aún en este equipo.
+**Solución**: We realized we hadn't linked our SSH keys to GitHub yet. We had to generate a new ED25519 key pair and add the public key to our GitHub account settings to get things moving.
 
 **Comandos/Enfoque**:
 ```
@@ -160,27 +160,18 @@ ssh-keygen -t ed25519 -C "e.eligarto@go.ugr.es"
 ssh -T git@github.com # Para verificar la conexión
 ```
 
-### Challenge 2: Gestión del contexto (Ramas)
-**Problema**: Casi realizo el commit del archivo my-info.txt directamente en la rama newbie en lugar de la rama feature/my-info.
+### Challenge 2: Context Awareness (Branching)
+**Problema**: We almost made the mistake of committing `my-info.txt` directly to the newbie branch instead of our dedicated feature branch.
 
-**Solución**: Aprendí a usar git status y git branch frecuentemente para verificar mi ubicación actual antes de ejecutar git add. Tuve que usar git checkout para moverme a la rama correcta antes de preparar el archivo.
+**Solución**: We’ve started using `git status` and `git branch` constantly to double-check where we are. We had to use `git checkout` to jump to the right branch before staging our files.
 
 
 ---
 
 ## 💭 Personal Reflection
 
-**What surprised me**:
-Me sorprendió lo rápido y ligero que es el sistema de ramas en Git. Pensaba que crear una rama duplicaría todos los archivos, pero ahora entiendo que son solo punteros a commits, lo que hace que cambiar de una a otra sea instantáneo.
-
-**What I found most difficult**:
-Acostumbrarme al paso intermedio del Staging Area (el comando add). A veces parece redundante, pero entiendo que es fundamental para tener un control total sobre qué cambios específicos queremos incluir en un commit y cuáles no.
-
-**What I found most useful**:
-El comando git log --oneline --graph --all. Proporciona un mapa visual muy claro de cómo divergen las ramas y dónde se encuentra cada una respecto a las demás.
-
-**How I would apply this in real projects**:
-En cualquier proyecto profesional, utilizaría este flujo para asegurar que la rama principal siempre sea funcional. Cada nueva tarea, por pequeña que sea, tendría su propia rama, y usaría mensajes de commit descriptivos para documentar el "por qué" de cada cambio, no solo el "qué".
+It’s impressive how fast and lightweight Git handles branches. We used to think creating a branch meant duplicating all the files, but learning that they are just "pointers" to commits explains why switching between them is so instant. Getting used to the add step took a bit of time. It felt a bit repetitive at first, but we now see it’s essential for having total control over exactly which changes make it into a commit. The `git log --oneline --graph --all` command is a total game-changer. It gives us a very clear visual map of how branches diverge and where each one stands compared to the others.
+In any professional setting, we’ll definitely stick to this "feature-branch" workflow. It’s the only way to ensure the main branch stays clean and functional while we work on experimental updates or new features in the background.
 
 ---
 
@@ -209,8 +200,8 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
   - cc25294: "Add personal information"
 
 **Additional files created** (if any):
-- File 1: hello.txt - Archivo básico para practicar el flujo de preparación.
-- File 2: my-info.txt - Archivo creado en una rama específica para practicar push remoto.
+- File 1: hello.txt - A simple file to practice the staging workflow.
+- File 2: my-info.txt - A file created on a feature branch to practice remote pushes.
 
 ---
 
@@ -228,8 +219,6 @@ Before submitting, ensure you have:
 ---
 
 ## 📝 Additional Comments
-
-Los ejercicios han sido muy claros para asentar las bases. La obligatoriedad de documentar el proceso en este archivo ayuda mucho a memorizar los comandos recién aprendidos.
 
 ---
 
