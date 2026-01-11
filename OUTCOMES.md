@@ -12,7 +12,7 @@
 **Status**: ✅ Completed
 
 **What I did**:
-In this first level, Nikolina and I got a solid handle on the Git basics. We walked through the initial setup, the core "add and commit" workflow, and learned how to manage local branches. We also practiced syncing our local work with our remote fork on GitHub, ensuring our progress was properly backed up and tracked.
+In this first level, we got a solid handle on the Git basics. We walked through the initial setup, the core "add and commit" workflow, and learned how to manage local branches. We also practiced syncing our local work with our remote fork on GitHub, ensuring our progress was properly backed up and tracked.
 
 **Commands Used**:
 ```bash
