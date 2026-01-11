@@ -154,8 +154,9 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
 **Links to branches/commits**:
 - Link to your outcome branch: `https://github.com/eligarto-ugr/taller-master-ugr/tree/group-DS04-outcomes/intermediate`
 - Key commits demonstrating your work:
-  - Commit hash: "Merge footer with resolved conflicts"
-  - Commit hash: "Tag v1.0 stable release"
+  - c2f3270: "Merge footer with resolved conflicts"
+  - ced1e9c: "Mantener page.html desde feature/header"
+  - b737c43: "Clean up intermediate before merging"
 
 **Additional files created** (if any):
 - File 1: page.html - El archivo central donde se gestionaron los conflictos de header y footer.
