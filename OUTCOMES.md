@@ -12,7 +12,7 @@
 **Status**: ✅ Completed
 
 **What I did**:
-He completado el nivel intermedio donde el objetivo principal era gestionar el flujo de trabajo con múltiples ramas y resolver conflictos. Creamos dos ramas independientes (feature/header y feature/footer) que modificaban el mismo archivo (page.html). Durante la integración en la rama intermediate, gestionamos y resolvimos un conflicto de contenido manualmente. Finalmente, aplicamos el uso de etiquetas (tags) anotadas y ligeras para marcar versiones estables del proyecto.
+We tackled the intermediate level, focusing on multi-branch workflows and conflict resolution. We set up two separate branches—feature/header and feature/footer—both targeting the same page.html file. This intentionally led to a merge conflict when we brought them back into the intermediate branch, which we had to sort out manually. To wrap things up, we practiced using both annotated and lightweight tags to keep track of our stable project versions.
 
 **Commands Used**:
 ```bash
@@ -88,23 +88,25 @@ PS C:\Users\elias\taller-master-ugr> git log --graph --oneline --all
 ## 🎯 Key Learnings
 
 **Main concepts I learned**:
-1. **Resolución de conflictos compleja**: Aprendí que los conflictos no solo son de texto, sino que pueden ser de lógica (como el conflicto Modify/Delete).
-2. **Importancia de la codificación**: Descubrí que Git puede confundir archivos de texto con binarios si la codificación no es UTF-8 (problema común en Windows/PowerShell).
-3. **Etiquetado de versiones**: El uso de etiquetas anotadas para marcar hitos inmutables en el desarrollo del software.
+1. **Beyond text conflicts**: We learned that merge conflicts aren't always just about clashing lines of code. Dealing with the "Modify/Delete" conflict showed us that Git also tracks structural changes, which forced us to think more logically about how we integrate different branches.
+2. **The encoding headache**: A major takeaway for us was how much file encoding matters. Since we were using PowerShell on Windows, Git initially mistook our text files for binaries because they weren't in UTF-8. It was a bit of a hurdle, but it taught us to always double-check our environment settings to keep the workflow smooth.
+3. **Professional Tagging**: We got the hang of using annotated tags to mark project milestones. We now understand that while branches are fluid, tags provide an immutable way to label stable releases, which is essential for any real-world software project.
+
+---
 
 **Skills I improved**:
-- Gestión de conflictos manuales y limpieza de ramas.
-- Uso de `git tag` para el control de versiones (Releases).
-- Depuración de errores de configuración de Git en entornos Windows.
+- **Handling manual merge conflicts and branch cleanup**: We got better at fixing messy conflicts by hand and learned why it's so important to keep our branch history tidy after a merge.
+- **Release management via git tag**: We’ve grown comfortable using tags to mark stable releases, ensuring we have clear, permanent milestones in our project.
+- **Troubleshooting Git on Windows**: We improved our ability to debug setup quirks, especially when dealing with PowerShell and the encoding issues that tend to pop up in Windows environments.
 
 ---
 
 ## 🚧 Challenges Faced
 
-### Challenge 1: Advertencia de "Binary Files" y codificación
-**Problem**: Al intentar fusionar `feature/footer`, Git lanzaba el error: `warning: Cannot merge binary files: page.html`. Esto se debía a que PowerShell creó el archivo en UTF-16, y Git no podía leer el texto para insertar los marcadores de conflicto.
+### The "Binary Files" Warning & Encoding Mess
+**Problem**: While we were trying to merge feature/footer, we hit an unexpected error: `warning: Cannot merge binary files: page.html`. It turned out that because we were working in PowerShell, the file was automatically saved in UTF-16 format. This confused Git into thinking the file was a binary instead of plain text, so it couldn't insert the conflict markers we needed.
 
-**Solution**: Tuve que abortar el merge, borrar los archivos físicos y recrearlos usando el editor VS Code asegurando la codificación UTF-8.
+**Solution**: We had to abort the merge and manually delete the files from our folder to clear any trace of the wrong encoding. We then recreated them from scratch using VS Code, making sure to specifically save them in UTF-8. This finally let Git see the text and allowed us to finish the merge properly.
 
 **Commands/Approach**:
 ```bash
@@ -117,19 +119,17 @@ git commit -m "Fix encoding to UTF-8"
 
 ---
 
-### Challenge 2: Conflicto Modify/Delete
-**Problem**: Durante la limpieza, borré `page.html` en la rama base. Al intentar fusionar `feature/header`, Git detectó que en una rama el archivo no existía y en la otra sí.
-**Mensaje de error**: `CONFLICT (modify/delete): page.html deleted in HEAD and modified in feature/header`.
+### Challenge 2: The "Modify/Delete" Snag
+**Problem**: While we were tidying up the repository, we accidentally wiped page.html from the base branch. When we went to merge feature/header, Git hit a bit of a snag. It didn't know whether to stick with the deletion from our base branch or keep the modified version coming from the feature branch. It flagged this with the error: `CONFLICT (modify/delete): page.html deleted in HEAD and modified in feature/header.`.
 
-**Solution**: Utilicé `git add page.html` para confirmar que quería mantener la versión de la rama de la funcionalidad.
+**Solution**: To get things back on track, we used `git add page.html`. This was our way of telling Git that we definitely wanted to keep the version from the feature branch. Running that command effectively restored the file and let us finish the merge without further issues.
 
 ---
 
 ## 💭 Personal Reflection
 
-Este nivel ha sido especialmente útil porque me enfrenté a problemas reales que van más allá de los tutoriales básicos. La resolución de conflictos me ha enseñado que Git es una herramienta de precisión: un pequeño detalle como la codificación de un archivo puede detener un flujo de trabajo. 
-
-Entender los marcadores de conflicto (`<<<<<<< HEAD`, `=======`, `>>>>>>>`) me da la seguridad de que, incluso si el equipo trabaja en las mismas líneas de código, siempre hay una forma segura de integrar el trabajo de todos. Además, el uso de etiquetas (tags) me parece vital para la organización profesional; ahora entiendo que mientras las ramas son para el "día a día", los tags son para los momentos importantes de entrega. En un proyecto real, esto me permitiría volver a una versión estable en segundos si algo falla en producción.
+This level was a real eye-opener for us because we ran into actual problems that go way beyond what you see in basic tutorials. Fixing those merge conflicts taught us that Git is all about precision; we learned the hard way that a tiny detail can completely stall a workflow if you aren't careful.
+Finally getting a grip on those conflict markers (<<<<<<< HEAD, =======, >>>>>>>) makes us feel a lot more confident about working in a team. Even if everyone is editing the same lines of code, we now know there’s a reliable way to bring it all together without losing work. Plus, we finally see why tagging is so vital for professional organization.
 
 ---
 
@@ -159,8 +159,8 @@ Rate your confidence level for each topic (1-5, where 5 is very confident):
   - b737c43: "Clean up intermediate before merging"
 
 **Additional files created** (if any):
-- File 1: page.html - El archivo central donde se gestionaron los conflictos de header y footer.
-- File 2: OUTCOMES.md - Documentación completa de la entrega.
+- File 1: page.html - Main file with the header and footer.
+- File 2: OUTCOMES.md - Submission file.
 
 ---
 
@@ -179,7 +179,6 @@ Before submitting, ensure you have:
 
 ## 📝 Additional Comments
 
-Los ejercicios han sido muy claros para asentar las bases. La obligatoriedad de documentar el proceso en este archivo ayuda mucho a memorizar los comandos recién aprendidos.
 
 ---
 
