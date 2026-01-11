@@ -121,10 +121,14 @@ Author: Miguel A. Oltra <39242642+miguel-oltra@users.noreply.github.com>
 ```
 
 **Screenshots** (if applicable):
-- ![alt text](<Captura de pantalla 2026-01-08 192552.png>)
-- ![alt text](<Captura de pantalla 2026-01-08 192616.png>)
-- ![alt text](<Captura de pantalla 2026-01-08 192631.png>)
-- ![alt text](<Captura de pantalla 2026-01-08 192925.png>)
+- <img width="1245" height="977" alt="Captura de pantalla 2026-01-08 192552" src="https://github.com/user-attachments/assets/f4ca3a06-fd8e-42be-83e3-b4fc189635c7" />
+
+- <img width="965" height="973" alt="Captura de pantalla 2026-01-08 192616" src="https://github.com/user-attachments/assets/a35ede5a-dfff-412e-8deb-5b40ad9c9c8a" />
+
+- <img width="935" height="956" alt="Captura de pantalla 2026-01-08 192631" src="https://github.com/user-attachments/assets/99b93920-f03d-4bd0-859f-e037232604ea" />
+
+- <img width="1249" height="924" alt="Captura de pantalla 2026-01-08 192925" src="https://github.com/user-attachments/assets/24a2a60f-94f2-4667-bdcf-14441b0366ff" />
+
 
 ---
 
