@@ -13,8 +13,8 @@ Welcome to the Newbie level! This exercise will help you get started with basic 
 ### Part 1: Repository Setup and Basic Commands
 1. Configure your Git identity:
    ```bash
-   git config --global user.name "Your Name"
-   git config --global user.email "your.email@example.com"
+   git config --global user.name "Elias"
+   git config --global user.email "e.eligarto@go.ugr.es"
    ```
 
 2. Clone this repository using SSH:
